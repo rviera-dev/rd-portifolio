@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rviera Portfólio</title>
+</head>
+
+<body>
+
+    <div class="particulas"></div>
+
+    <div class="particulas"></div>
+
+    <!-- 🔹 Adicione este bloco logo abaixo -->
+    <div class="icones-bg">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="icone icone-html">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="icone icone-css">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            class="icone icone-js">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            class="icone icone-react">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="icone icone-git">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+            class="icone icone-figma">
+    </div>
+
+    <!-- e logo depois continua o resto do seu site -->
+    <nav class="navegacao">
+        <button class="menu-toggle" onclick="abrirMenu()">☰</button>
+        <ul class="menu">
+            <li><a href="#Inicio" class="menu-link">Inicio</a></li>
+            <li><a href="#Sobre" class="menu-link">Sobre</a></li>
+            <li><a href="#Projetos" class="menu-link">Projetos</a></li>
+            <li><a href="#Contatos" class="menu-link">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main id="Inicio" class="Cabecalho">
+
+        <img src="./img/foto 2.jpg" alt="Foto Rviera" class="perfil">
+        <h1 class="H">Ronald l vieira</h1>
+        <p class="sub-titulo">Desenvolvedor Front End | Designer Gráfico </p>
+
+    </main>
+
+    <section id="Sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Sou Ronald Leite, Front-end Developer e Designer Gráfico que transforma ideias em experiências visuais
+                que vendem.
+                Uno estética, estratégia e comportamento humano pra criar interfaces que prendem o olhar e despertam
+                emoção.
+                Nada aqui é só bonito — é pensado pra converter, impressionar e ficar na mente.
+                
+            </p>
+        </div>
+    </section>
+
+    <section id="Projetos" class="projetos">
+        <h2 class="projetos-titulo"> Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="./img/proj 3.png" alt="" class="projetos-imagens">
+                <div class="caixa-tp">
+                    <h3 class="info-projeto"> Loja de Carros</h3>
+                    <p class="paragrafo-projeto">Loja virtual moderna com animações suaves e desing responsivo</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="./img/pj 2.png" alt="" class="projetos-imagens">
+                <div class="caixa-tp">
+                    <h3 class="info-projeto"> Cardapio Virtual </h3>
+                    <p class="paragrafo-projeto">Cardapio virtual moderno com animações suaves e desing responsivo</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="./img/proj 1.png" alt="" class="projetos-imagens">
+                <div class="caixa-tp">
+                    <h3 class="info-projeto"> Login Page</h3>
+                    <p class="paragrafo-rojeto"> Pagina de login com animações suaves e desing responsivo</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="Contatos" class="contatos">
+        <h2 class="contato-titul">Entre em Contatos</h2>
+        <form class="fomulario-contato" id="formulario" onsubmit="enviarwhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite-sua-Mensagem" rows="6" id="mensagem"></textarea>
+            </div>
+            <button type="submit" class="butao"> Enviar para WhatsApp</buttom>
+        </form>
+
+    </section>
+
+    <script>
+        function enviarwhats(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+            const telefone = '5511921372409'; // DDI + DDD + número
+
+            // Monta a mensagem
+            const texto = `Olá! Me chamo ${nome}. ${mensagem}`;
+            const msgFormatada = encodeURIComponent(texto);
+
+            // Cria o link do WhatsApp
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+
+            // Abre em nova aba
+            window.open(url, '_blank');
+        }
+
+        function abrirMenu() {
+            document.querySelector('.menu').classList.toggle('ativo');
+        }
+
+        // Anima os ícones conforme o scroll
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const icones = document.querySelectorAll('.icone');
+
+            icones.forEach((icone, index) => {
+                const trigger = index * 250; // cada ícone aparece um pouco depois do outro
+                if (scrollY > trigger - 100) {
+                    icone.classList.add('ativo');
+                }
+            });
+        });
+
+
+
+    </script>
+
+
+</body>
+
+</html>

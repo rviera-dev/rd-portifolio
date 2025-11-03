@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primaria: #4f46e5;
+    --secundaria: #7c3aed;
+    --escuro: #0f172a;
+    --maisEscuro: #0a0f1c;
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background: var(--escuro);
+    color: var(--claro);
+}
+
+.navegacao {
+    position: fixed;
+    top: 0;
+    background: rgba(15, 23, 42, 0.8);
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+
+.menu {
+    display: flex;
+    /*serve para deixar um do lado do outro*/
+    justify-content: center;
+    /* alinha tds no centro*/
+    list-style: none;
+    gap: 3rem;
+    /* deixa afastar se estirever muito perto*/
+}
+
+.menu-link {
+    text-decoration: none;
+    /* a linha q fica embaixo dos nome */
+    color: var(--claro);
+    font-weight: 500;
+    /* grosura do texto */
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.Cabecalho {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /*DIREÇÃO Q OS ITENS FICAM*/
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+.perfil {
+    width: 350px;
+    height: 350px;
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+    border-radius: 50%;
+    /*deixa arredondado*/
+    border: 4px solid var(--vidro);
+    animation: flutuar 5s ease-in infinite alternate;
+}
+
+.H {
+    font-size: 3.5rem;
+    color: var(--primaria);
+    font-weight: bold;
+    margin: 20px;
+}
+
+.sub-titulo {
+    font-size: 1.5rem;
+    color: var(--claro);
+}
+
+.sobre {
+    padding: 6rem 2rem;
+}
+
+.sobre-titulo {
+    font-size: 3rem;
+    color: var(--claro);
+    text-align: center;
+    /*ALINHA O TEXT NO CENTRO*/
+}
+
+.sobre-caixa {
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(15px);
+    /* efeito vidro fosco*/
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sobre-paragrafo {
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+.projetos {
+    padding: 6rem 2rem;
+}
+
+.projetos-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.projetos-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.3);
+}
+
+.projetos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.projetos-imagens {
+    height: 200px;
+    /*TAMANHO DA IMG*/
+    width: 100%;
+    /*LIMITE DA OCUPAÇAO */
+    object-fit: cover;
+}
+
+.projetos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.caixa-tp {
+    padding: 1.5rem;
+    /*ALTURA DA CAIXA*/
+}
+
+.paragrafo-projetos {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.5rem;
+}
+
+.info-projetos {
+    margin-bottom: 5px;
+}
+
+.contatos {
+    padding: 6rem 2rem;
+}
+
+.contato-titul {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.fomulario-contato {
+    max-width: 600px;
+    /* serve para definir o tamanho da caixa*/
+    margin: 0 auto;
+    /* serve para centralizar a caixa*/
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    /* bordas arrendondadas */
+    backdrop-filter: blur(5px);
+    /* vidro fosco*/
+    padding: 3rem;
+    /*altura da caixa*/
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+}
+
+
+.campo-form {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    outline: none;
+}
+
+.campo-form:focus {
+    border-color: var(--secundaria);
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+}
+
+.grupo-form {
+    margin-bottom: 1.5rem;
+    /*margem de distancia das caixas*/
+}
+
+.butao {
+    color: var(--claro);
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.5s ease;
+}
+
+.butao:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+}
+
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background:
+        radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%),
+        var(--escuro);
+}
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* 🔹 Padrão (desktop) */
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 3rem;
+}
+
+/* 🔹 Mobile */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(15, 23, 42, 0.95);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 0;
+        display: none;
+        /* escondido por padrão só no mobile */
+    }
+
+    .menu.ativo {
+        display: flex;
+    }
+
+    .navegacao {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        color: var(--claro);
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+}
+
+/* 🔹 Oculta o botão hamburguer no desktop */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .perfil {
+        width: 200px;
+        height: 200px;
+    }
+
+    .H {
+        font-size: 2rem;
+    }
+
+    .sub-titulo {
+        font-size: 1rem;
+    }
+
+    .sobre-titulo,
+    .projetos-titulo,
+    .contato-titul {
+        font-size: 2rem;
+    }
+
+    .projetos-caixa {
+        grid-template-columns: 1fr;
+    }
+
+    .fomulario-contato {
+        width: 90%;
+        padding: 2rem;
+    }
+
+    .butao {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+.icones-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* atrás do conteúdo */
+    pointer-events: none;
+    /* não atrapalha clique */
+    overflow: hidden;
+}
+
+/* estilos gerais dos ícones */
+.icone {
+    position: absolute;
+    width: 70px;
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+    filter: drop-shadow(0 0 15px rgba(79, 70, 229, 0.3));
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* posições fixas (espalhados pelo fundo) */
+.icone-html {
+    top: 25%;
+    left: 10%;
+}
+
+.icone-css {
+    top: 60%;
+    left: 80%;
+}
+
+.icone-js {
+    top: 75%;
+    left: 30%;
+}
+
+.icone-react {
+    top: 15%;
+    left: 70%;
+}
+
+.icone-git {
+    top: 45%;
+    left: 20%;
+}
+
+.icone-figma {
+    top: 85%;
+    left: 60%;
+}
+
+/* animação flutuante + leve rotação */
+@keyframes flutuar-icone {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(10deg) scale(1.05);
+    }
+}
+
+/* estado ativo (aparece e começa a flutuar) */
+.icone.ativo {
+    opacity: 0.9;
+    animation: flutuar-icone 5s ease-in-out infinite;
+}
